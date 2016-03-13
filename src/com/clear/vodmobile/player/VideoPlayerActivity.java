@@ -22,7 +22,9 @@ public class VideoPlayerActivity extends Activity {
 		
 		
 		Intent intent = getIntent();
+		String Type = intent.getStringExtra("Type");
 		String URL = intent.getStringExtra("URL");
+		Log.i(TAG, "Type: " + Type);
 		Log.i(TAG, "URL: " + URL);
 		
 		ClearVideoView vv = (ClearVideoView) findViewById(R.id.videoview);
