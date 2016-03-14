@@ -61,6 +61,8 @@ public class ClearVideoView extends SurfaceView
     private long mDuration = -1;
     private int mVideoWidth;
     private int mVideoHeight;
+    
+    private String mMovieName = null;
 
     private int mSeekWhenPrepared = 0; // recording the seek position while
                                        // preparing
@@ -549,6 +551,11 @@ public class ClearVideoView extends SurfaceView
             // mMediaPlayer.setVideoScalingMode(mode);
         }
     }
+    
+    public void setMovieName(String name) {
+    	mMovieName = name;
+    }
+    
 
     /**
      * 
@@ -570,7 +577,10 @@ public class ClearVideoView extends SurfaceView
             mMediaController.setAnchorView(anchorView);
             mMediaController.setEnabled(isInPlaybackState());
 
-            if (mUri != null) {
+            if(mMovieName != null){
+            	mMediaController.setFileName(mMovieName);
+            }
+            else if (mUri != null) {
                 List<String> paths = mUri.getPathSegments();
                 String name = paths == null || paths.isEmpty() ? "null"
                         : paths.get(paths.size() - 1);

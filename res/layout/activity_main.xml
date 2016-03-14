@@ -1,12 +1,41 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context="${relativePackage}.${activityClass}" >
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" 
+    android:id="@+id/rootview" 
+    android:layout_width="match_parent"  
+    android:layout_height="match_parent"  
+    android:orientation="vertical" >
+    
+    <FrameLayout  
+        android:id="@+id/content"  
+        android:layout_width="match_parent"  
+        android:layout_height="match_parent"  
+        android:layout_weight="1" />  
+        
+	<!--  
+	<RadioGroup  
+        android:id="@+id/rg_tab"  
+        android:orientation="horizontal"  
+        android:layout_width="match_parent"  
+        android:layout_height="wrap_content"  
+        android:background="@drawable/bg_listab">  
+        
+	    
+	    <RadioButton  
+            style="@style/bottom_tab"  
+            android:drawableTop="@drawable/listtab_a_selector"  
+            android:text="电视" />  
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/hello_world" />
+        <RadioButton  
+            style="@style/bottom_tab"  
+            android:drawableTop="@drawable/listtab_b_selector"  
+            android:text="电影" />  
+ 		
+        <RadioButton  
+            style="@style/bottom_tab"  
+            android:drawableTop="@drawable/listtab_c_selector"  
+            android:text="酒店介绍" />  
+  		 
+  		 
+	</RadioGroup>
+	-->
 
-</RelativeLayout>
+</LinearLayout>

@@ -6,6 +6,7 @@ import java.util.Locale;
 import com.clear.vodmobile.R;
 
 import android.annotation.SuppressLint;
+import android.app.Activity;
 import android.content.Context;
 import android.graphics.Rect;
 import android.media.AudioManager;
@@ -79,6 +80,7 @@ public class ClearMediaController extends FrameLayout {
     private static final int SHOW_PROGRESS = 2;
     private boolean mFromXml = false;
     private ImageButton mPauseButton;
+    private ImageButton mBackButton;
 
     private AudioManager mAM;
 
@@ -152,6 +154,13 @@ public class ClearMediaController extends FrameLayout {
         if (mPauseButton != null) {
             mPauseButton.requestFocus();
             mPauseButton.setOnClickListener(mPauseListener);
+        }
+        
+        mBackButton = (ImageButton) v
+                .findViewById(R.id.mediacontroller_back);
+        if (mBackButton != null) {
+        	mBackButton.setFocusable(true);
+            mBackButton.setOnClickListener(mBackListener);
         }
 
         mProgress = (ProgressBar) v.findViewById(R.id.mediacontroller_seekbar);
@@ -439,6 +448,13 @@ public class ClearMediaController extends FrameLayout {
             show(sDefaultTimeout);
         }
     };
+    
+    private View.OnClickListener mBackListener = new View.OnClickListener() {
+        public void onClick(View v) {
+            Log.i(TAG, "Video Player exit");
+            ((Activity)mContext).finish();
+        }
+    };
 
     private void updatePausePlay() {
         if (mRoot == null || mPauseButton == null)
@@ -507,6 +523,8 @@ public class ClearMediaController extends FrameLayout {
     public void setEnabled(boolean enabled) {
         if (mPauseButton != null)
             mPauseButton.setEnabled(enabled);
+        if (mBackButton != null)
+        	mBackButton.setEnabled(enabled);
         if (mProgress != null)
             mProgress.setEnabled(enabled);
         disableUnsupportedButtons();
