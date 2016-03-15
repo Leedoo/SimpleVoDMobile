@@ -122,7 +122,7 @@ public class MovieTopRecommandFragment extends Fragment {
 		if(activity == null)
 			return ;
 		listView = (ListView) activity.findViewById(R.id.movie_list);
-		adapter = new MovieTopRecListAdapter(this.getActivity(), movies);
+		adapter = new MovieTopRecListAdapter(activity, movies);
 		listView.setAdapter(adapter);
 	}
 }

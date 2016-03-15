@@ -4,12 +4,10 @@
     android:layout_height="match_parent"
     android:orientation="vertical" >
     
-    <TextView  
-        android:layout_width="match_parent"  
-        android:layout_height="match_parent"  
-        android:gravity="center"  
-        android:padding="10dp"  
-        android:text="hotel hotel "  
-        android:textSize="20sp" />  
+    <ListView 
+        android:id="@+id/simple_pictext_list"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" 
+        android:layout_marginTop="30dp"/>
 
 </LinearLayout>

@@ -124,7 +124,7 @@ public class LiveFragment extends Fragment {
 			return ;
 		
 		listView = (ListView) activity.findViewById(R.id.channel_list);
-		adapter = new LiveChannelListAdapter(this.getActivity(), channels);
+		adapter = new LiveChannelListAdapter(activity, channels);
 		listView.setAdapter(adapter);
 		
 		listView.setOnItemClickListener(new OnItemClickListener() {
