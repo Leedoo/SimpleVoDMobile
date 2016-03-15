@@ -22,7 +22,7 @@ import android.widget.ImageView.ScaleType;
 
 public class ImageUtil {
 
-	public static void displayImage(String localUri, ImageView imgView) {
+	public static void displayImage(String URL, ImageView imgView) {
 		/* TODO, FIXME, who should do the scale? imageview or uil ??? */
 		imgView.setScaleType(ScaleType.FIT_XY);
 		
@@ -38,8 +38,7 @@ public class ImageUtil {
 		ImageLoader.getInstance().displayImage(
 				"file:/" + localUri, imgView, options);
 		*/
-		ImageLoader.getInstance().displayImage(
-				"file:/" + localUri, imgView);
+		ImageLoader.getInstance().displayImage(URL, imgView);
 	}
 	
 	@SuppressWarnings("deprecation")

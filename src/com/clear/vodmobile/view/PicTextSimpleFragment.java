@@ -16,6 +16,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 public class PicTextSimpleFragment extends Fragment {
+	private static String TAG = "PicTextSimpleFragment";
 	
 	public PicTextSimpleFragment(JSONObject menuJson) {
 		
@@ -23,7 +24,7 @@ public class PicTextSimpleFragment extends Fragment {
 	
 	@Override  
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {  
-        View view = inflater.inflate(R.layout.view_hotelintro, null);  
+        View view = inflater.inflate(R.layout.view_pictext_simple, null);  
         
         return view;  
     }  

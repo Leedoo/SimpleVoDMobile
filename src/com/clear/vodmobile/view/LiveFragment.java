@@ -16,6 +16,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 public class LiveFragment extends Fragment {
+	private static String TAG = "LiveFragment";
 	
 	public LiveFragment(JSONObject menuJson) {
 		

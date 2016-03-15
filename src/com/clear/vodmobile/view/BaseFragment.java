@@ -14,5 +14,6 @@ import android.view.View;
 import android.view.ViewGroup;
 
 public class BaseFragment extends Fragment {
+	private static String TAG = "BaseFragment";
 	
 }
