@@ -24,16 +24,18 @@ public class VideoPlayerActivity extends Activity {
 		
 		Intent intent = getIntent();
 		String Type = intent.getStringExtra("Type");
+		String Name = intent.getStringExtra("Name");
 		String URL = intent.getStringExtra("URL");
+		Log.i(TAG, "Play\n");
 		Log.i(TAG, "Type: " + Type);
+		Log.i(TAG, "Name: " + Name);
 		Log.i(TAG, "URL: " + URL);
 		
 		ClearVideoView vv = (ClearVideoView) findViewById(R.id.videoview);
 		vv.setVideoPath(URL);
-		vv.setMovieName("Test Movie Name");
+		vv.setMovieName(Name);
 		vv.start();
 		vv.enableMediaController(true);
-		
 	}
 	
 	@Override

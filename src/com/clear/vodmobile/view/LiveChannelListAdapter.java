@@ -21,39 +21,37 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-public class MovieTopRecListAdapter extends BaseAdapter  {
-	private static String TAG = "MovieTopRecListAdapter";
+public class LiveChannelListAdapter extends BaseAdapter  {
+	private static String TAG = "LiveChannelListAdapter";
 	
 	private Context ctx;
-	private List<MovieInfo> listItems;
+	private List<LiveChannelInfo> listItems;
 	private LayoutInflater listContainer;
 	
-	public final class ListViewMovieItem {
+	public final class ListViewChannelItem {
 		public ImageView iv;
 		public TextView tv;
 	}
 	
-	private final class MovieOnClickListener implements View.OnClickListener {
-		private MovieInfo movie;
+	private final class ChannelOnClickListener implements View.OnClickListener {
+		private LiveChannelInfo channel;
 		
-		public MovieOnClickListener(MovieInfo movie) {
-			this.movie = movie;
+		public ChannelOnClickListener(LiveChannelInfo channel) {
+			this.channel = channel;
 		}
 		
 		@Override
 		public void onClick(View v) {
-			// TODO Auto-generated method stub
 			Intent intent = new Intent(ctx, VideoPlayerActivity.class);
-			intent.putExtra("Type", "VoD");
-			intent.putExtra("Name", movie.Name);
-			intent.putExtra("URL", movie.URL);
+			intent.putExtra("Type", "Live");
+			intent.putExtra("Name", channel.Name);
+			intent.putExtra("URL", channel.URL);
 			ctx.startActivity(intent);
 		}
-		
 	}
 	
 	
-	public MovieTopRecListAdapter(Context ctx, List<MovieInfo> listItems) {
+	public LiveChannelListAdapter(Context ctx, List<LiveChannelInfo> listItems) {
 		this.ctx = ctx;
 		this.listItems = listItems;
 		listContainer = LayoutInflater.from(ctx); 
@@ -80,25 +78,25 @@ public class MovieTopRecListAdapter extends BaseAdapter  {
 	@Override
 	public View getView(int pos, View convertView, ViewGroup parent) {
 		// TODO Auto-generated method stub
-		Log.d(TAG, "movie toprecommend get view: " + pos + " arg1: " + convertView);
+		Log.d(TAG, "live get view: " + pos + " convertView: " + convertView);
 		
-		ListViewMovieItem viewItem = null;
+		ListViewChannelItem viewItem = null;
 		if(convertView == null) {
-			convertView = listContainer.inflate(R.layout.movie_item_pic_text, null);
+			convertView = listContainer.inflate(R.layout.live_item, null);
 			
-			viewItem = new ListViewMovieItem();
-			viewItem.iv = (ImageView) convertView.findViewById(R.id.movie_pic);
-			viewItem.tv = (TextView) convertView.findViewById(R.id.movie_name);
+			viewItem = new ListViewChannelItem();
+			viewItem.iv = (ImageView) convertView.findViewById(R.id.channel_pic);
+			viewItem.tv = (TextView) convertView.findViewById(R.id.channel_name);
 		
 			convertView.setTag(viewItem);
 		}
 		else {
-			viewItem = (ListViewMovieItem) convertView.getTag();
+			viewItem = (ListViewChannelItem) convertView.getTag();
 		}
 		
 		ImageUtil.displayImage(listItems.get(pos).PicURL, viewItem.iv);
 		
-		viewItem.iv.setOnClickListener(new MovieOnClickListener(listItems.get(pos)));
+		//viewItem.iv.setOnClickListener(new ChannelOnClickListener(listItems.get(pos)));
 		
 		viewItem.tv.setText(listItems.get(pos).Name);
 		

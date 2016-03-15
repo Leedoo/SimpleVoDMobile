@@ -20,6 +20,7 @@ import com.lidroid.xutils.http.ResponseInfo;
 import com.lidroid.xutils.http.callback.RequestCallBack;
 import com.lidroid.xutils.http.client.HttpRequest;
 
+import android.app.Activity;
 import android.app.Fragment;
 import android.os.Bundle;
 import android.util.Log;
@@ -117,7 +118,10 @@ public class MovieTopRecommandFragment extends Fragment {
 	}
 	
 	public void initViews() {
-		listView = (ListView) this.getActivity().findViewById(R.id.movie_list);
+		Activity activity = this.getActivity();
+		if(activity == null)
+			return ;
+		listView = (ListView) activity.findViewById(R.id.movie_list);
 		adapter = new MovieTopRecListAdapter(this.getActivity(), movies);
 		listView.setAdapter(adapter);
 	}
