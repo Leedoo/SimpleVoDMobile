@@ -57,9 +57,9 @@ public class SimplePicTextListAdapter extends BaseAdapter  {
 		// TODO Auto-generated method stub
 		Log.d(TAG, "SimplePicText get view: " + pos + " arg1: " + convertView);
 		
-		if(convertView == null) {
+		//if(convertView == null) {
 			convertView = listContainer.inflate(R.layout.simple_pic_text_item, null);
-		}
+		//}
 
 		ImageUtil.displayImage(listItems.get(pos).PicURL, 
 				(ImageView)convertView.findViewById(R.id.simple_pictext_pic));

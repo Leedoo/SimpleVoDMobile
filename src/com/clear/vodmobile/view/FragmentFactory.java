@@ -17,6 +17,8 @@ public class FragmentFactory {
 	
 	private static final String TAG = "FragmentFactory";
 	
+	/* TODO, FIXME, keep the fragment with same type & menuJson */
+	
 	public static Fragment getInstanceByType(JSONObject menuJson) {
         Fragment fragment = null;  
         String type;
