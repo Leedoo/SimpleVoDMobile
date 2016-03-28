@@ -49,6 +49,7 @@ public class MainActivity extends Activity {
 	
 	private FragmentManager fragManager;
 	private RadioGroup radioGroup;
+	private int bottomTabPos = 0;
 	
 	private JSONObject entryJson = null;
 	private JSONObject mainMenuJson;
@@ -256,9 +257,9 @@ public class MainActivity extends Activity {
 		
 		for(int i = 0; i < fragmentDataset.size(); i++) {
 			RadioButton rb = new RadioButton(this);
-			
+			//rb.setButtonDrawable(null);
+			rb.setButtonDrawable(android.R.color.transparent);
 			rb.setBackgroundResource(R.drawable.bottombar_itembg_selector);
-			rb.setButtonDrawable(null);
 			rb.setGravity(Gravity.CENTER);
 			
 			/* TODO, FIXME, replace with default empty icon */
@@ -332,16 +333,18 @@ public class MainActivity extends Activity {
 		}
 	}
 	
-	@Override
-    protected void onStart() {
-        super.onStart();
-        Log.i(TAG, "onStart called.");
-    }
-
     @Override
     protected void onRestart() {
         Log.i(TAG, "onRestart called.");
         super.onRestart();
+    }
+
+	
+	@Override
+    protected void onStart() {
+        super.onStart();
+		
+        Log.i(TAG, "onStart called.");
     }
 
     @Override
@@ -376,4 +379,18 @@ public class MainActivity extends Activity {
         
         super.onDestroy();
     }
+    
+    @Override
+    protected void onRestoreInstanceState(Bundle savedInstanceState) {
+      bottomTabPos = savedInstanceState.getInt("bottomTabPos");
+      
+      super.onRestoreInstanceState(savedInstanceState);
+    }
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+
+      outState.putInt("bottomTabPos", bottomTabPos);
+    }
+    
+    
 }

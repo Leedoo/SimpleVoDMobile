@@ -17,6 +17,11 @@ public class FragmentFactory {
 	
 	private static final String TAG = "FragmentFactory";
 	
+	/* TODO, FIXME, BUG, 4.4 Fragment reuse. only walkaround */
+	private static Fragment lastLiveFragment=null;
+	private static Fragment lastMovieTopRecommandFragment=null;
+	private static Fragment lastPicTextSimpleFragment=null;
+	
 	/* TODO, FIXME, keep the fragment with same type & menuJson */
 	
 	public static Fragment getInstanceByType(JSONObject menuJson) {

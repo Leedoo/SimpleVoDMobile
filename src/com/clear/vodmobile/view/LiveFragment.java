@@ -141,5 +141,8 @@ public class LiveFragment extends Fragment {
 				startActivity(intent);
 			}
 		});
+		
 	}
+	
+
 }
